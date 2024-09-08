@@ -1,7 +1,7 @@
 from enum import Enum
 from datetime import datetime
 from sqlalchemy import func
-from sqlalchemy.orm import Mapped, mapped_columm, registry
+from sqlalchemy.orm import Mapped, mapped_column, registry
 
 table_registry = registry()
 
@@ -15,8 +15,8 @@ class TaskStatus(str, Enum):
 class Task:
     __tablename__ = "tasks"
 
-    id: Mapped[int] = mapped_columm(init=False, primary_key=True)
+    id: Mapped[int] = mapped_column(init=False, primary_key=True)
     title: Mapped[str]
     description: Mapped[str] 
     status: Mapped[TaskStatus]
-    created_at: Mapped[datetime] = mapped_columm(init=False, server_default=func.now())
+    created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())

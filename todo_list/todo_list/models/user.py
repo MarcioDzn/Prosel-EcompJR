@@ -1,7 +1,7 @@
 from enum import Enum
 from datetime import datetime
 from sqlalchemy import func
-from sqlalchemy.orm import Mapped, mapped_columm, registry
+from sqlalchemy.orm import Mapped, mapped_column, registry
 
 table_registry = registry()
 
@@ -15,9 +15,9 @@ class UserType(str, Enum):
 class User:
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_columm(init=False, primary_key=True)
+    id: Mapped[int] = mapped_column(init=False, primary_key=True)
     name: Mapped[str]
-    email: Mapped[str] = mapped_columm(unique=True)
+    email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
     type: Mapped[UserType]
-    created_at: Mapped[datetime] = mapped_columm(init=False, server_default=func.now())
+    created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
