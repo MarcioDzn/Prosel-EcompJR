@@ -6,7 +6,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 from todo_list.configs.database import get_session
 
-from todo_list.schemas.user import UserCreate, UserPublic
+from todo_list.schemas.user import UserCreate, UserPublic, UserList
 
 router = APIRouter(prefix="/users", tags=["user"])
 
@@ -32,3 +32,11 @@ def create_user(user: UserCreate, session: Session = Depends(get_session)) -> Us
 
     return db_user
 
+
+@router.get("/", status_code=HTTPStatus.OK)
+def get_users(session: Session = Depends(get_session)) -> UserList:
+    users = session.scalars(
+        select(User)
+    ).all()
+
+    return {"users": users}

@@ -21,3 +21,6 @@ class UserPublic(BaseModel):
     created_at: datetime
 
 
+class UserList(BaseModel):
+    users: list[UserCreate]
+    
