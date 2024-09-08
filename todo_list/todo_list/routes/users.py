@@ -40,3 +40,17 @@ def get_users(session: Session = Depends(get_session)) -> UserList:
     ).all()
 
     return {"users": users}
+
+
+@router.get("/{user_id}", status_code=HTTPStatus.OK)
+def get_user_by_id(user_id: int, session: Session = Depends(get_session)) -> UserPublic:
+    db_user = session.scalar(
+        select(User).where(
+            User.id == user_id
+        )
+    )
+
+    if (not db_user):
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Usuário não encontrado")
+    
+    return db_user
