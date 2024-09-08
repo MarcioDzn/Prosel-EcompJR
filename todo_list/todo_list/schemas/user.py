@@ -15,6 +15,7 @@ class UserCreate(BaseModel):
 
 
 class UserPublic(BaseModel):
+    id: int
     name: str
     email: EmailStr
     type: UserType
