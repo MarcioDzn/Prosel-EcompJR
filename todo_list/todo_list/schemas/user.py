@@ -25,3 +25,11 @@ class UserPublic(BaseModel):
 class UserList(BaseModel):
     users: list[UserPublic]
 
+
+class UserUpdate(BaseModel):
+    name: str | None = None
+    email: EmailStr | None = None
+    password: str | None = None
+    type: UserType | None = None
+
+
