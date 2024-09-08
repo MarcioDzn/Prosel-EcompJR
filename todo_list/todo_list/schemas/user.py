@@ -22,5 +22,5 @@ class UserPublic(BaseModel):
 
 
 class UserList(BaseModel):
-    users: list[UserCreate]
-    
+    users: list[UserPublic]
+
