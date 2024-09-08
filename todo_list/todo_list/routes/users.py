@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from todo_list.configs.database import get_session
 
 from todo_list.schemas.user import UserCreate, UserPublic, UserList
+from todo_list.schemas.message import Message
 
 router = APIRouter(prefix="/users", tags=["user"])
 
@@ -54,3 +55,20 @@ def get_user_by_id(user_id: int, session: Session = Depends(get_session)) -> Use
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Usuário não encontrado")
     
     return db_user
+
+
+@router.delete("/{user_id}", status_code=HTTPStatus.OK)
+def delete_user(user_id: int, session: Session = Depends(get_session)) -> Message:
+    db_user = session.scalar(
+        select(User).where(
+            User.id == user_id
+        )
+    )
+
+    if (not db_user):
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Usuário não encontrado")
+
+    session.delete(db_user)
+    session.commit()
+
+    return {"message": "Usuário deletado com sucesso"}
