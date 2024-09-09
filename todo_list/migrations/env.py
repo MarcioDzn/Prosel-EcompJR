@@ -7,8 +7,8 @@ from alembic import context
 
 from todo_list.models.user import table_registry as user_table_registry
 from todo_list.models.task import table_registry as task_table_registry
-from todo_list.configs.settings import Settings
 
+from todo_list.configs.settings import Settings
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -24,7 +24,6 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = [user_table_registry.metadata, task_table_registry.metadata]
-
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
