@@ -1,7 +1,8 @@
 from enum import Enum
 from datetime import datetime
 from sqlalchemy import func
-from sqlalchemy.orm import Mapped, mapped_column, registry
+from sqlalchemy.orm import Mapped, mapped_column, registry, relationship
+
 
 table_registry = registry()
 
@@ -21,3 +22,5 @@ class User:
     password: Mapped[str]
     type: Mapped[UserType]
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
+
+    tasks: Mapped[list["Task"]] = relationship("Task", init=False, back_populates="user", cascade='all, delete-orphan')
