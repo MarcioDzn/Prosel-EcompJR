@@ -1,6 +1,6 @@
 from http import HTTPStatus
 from fastapi import APIRouter, Depends, HTTPException
-from todo_list.models.user import User
+from todo_list.models.models import User
 
 from sqlalchemy import select, update
 from sqlalchemy.orm import Session

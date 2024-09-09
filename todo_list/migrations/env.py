@@ -5,8 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from todo_list.models.user import table_registry as user_table_registry
-from todo_list.models.task import table_registry as task_table_registry
+from todo_list.models.models import table_registry 
 
 from todo_list.configs.settings import Settings
 # this is the Alembic Config object, which provides
@@ -23,7 +22,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [user_table_registry.metadata, task_table_registry.metadata]
+target_metadata = table_registry.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
