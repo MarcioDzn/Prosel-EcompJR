@@ -9,6 +9,8 @@ from todo_list.configs.database import get_session
 from todo_list.schemas.user import UserCreate, UserPublic, UserList, UserUpdate
 from todo_list.schemas.message import Message
 
+from todo_list.security import *
+
 router = APIRouter(prefix="/users", tags=["user"])
 
 
@@ -25,7 +27,9 @@ def create_user(user: UserCreate, session: Session = Depends(get_session)) -> Us
     if (db_user):
         raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="E-mail já cadastrado!")
 
-    db_user = User(name=user.name, email=user.email, password=user.password, type=user.type)
+    hashed_password = hash_pasword(user.password)
+
+    db_user = User(name=user.name, email=user.email, password=hashed_password, type=user.type)
 
     session.add(db_user)
     session.commit()
