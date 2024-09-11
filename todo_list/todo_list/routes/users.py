@@ -84,7 +84,12 @@ def delete_user(user_id: int, session: Session = Depends(get_session)) -> Messag
 
 
 @router.patch("/{user_id}", status_code=HTTPStatus.OK)
-def update_user(user_id: int, user: UserUpdate, session: Session = Depends(get_session)) -> UserPublic:
+def update_user(user_id: int, user: UserUpdate, session: Session = Depends(get_session), current_user: User = Depends(get_current_user)) -> UserPublic:
+    if current_user.id != user_id:
+        raise HTTPException(
+            status_code=HTTPStatus.FORBIDDEN, detail='Sem permissões suficientes'
+        )
+
     db_user = session.scalar(
         select(User).where(
             User.id == user_id
