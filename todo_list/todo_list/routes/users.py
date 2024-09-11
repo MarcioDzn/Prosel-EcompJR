@@ -27,7 +27,7 @@ def create_user(user: UserCreate, session: Session = Depends(get_session)) -> Us
     if (db_user):
         raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="E-mail já cadastrado!")
 
-    hashed_password = hash_pasword(user.password)
+    hashed_password = hash_password(user.password)
 
     db_user = User(name=user.name, email=user.email, password=hashed_password, type=user.type)
 
@@ -45,6 +45,11 @@ def get_users(session: Session = Depends(get_session)) -> UserList:
     ).all()
 
     return {"users": users}
+
+
+@router.get("/me/")
+def get_users_me(current_user: User = Depends(get_current_active_user)):
+    return current_user
 
 
 @router.get("/{user_id}", status_code=HTTPStatus.OK)
