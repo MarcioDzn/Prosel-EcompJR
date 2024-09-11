@@ -48,7 +48,7 @@ def get_users(session: Session = Depends(get_session)) -> UserList:
 
 
 @router.get("/me/")
-def get_users_me(current_user: User = Depends(get_current_active_user)):
+def get_users_me(current_user: User = Depends(get_current_active_user)) -> UserPublic:
     return current_user
 
 
