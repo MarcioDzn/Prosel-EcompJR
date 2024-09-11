@@ -42,4 +42,4 @@ class Task:
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
 
     user_id: Mapped[int] = mapped_column(ForeignKey(User.__table__.c.id))
-    user: Mapped[User] = relationship("User", back_populates="tasks")
+    user: Mapped[User] = relationship("User", init=False, back_populates="tasks")
