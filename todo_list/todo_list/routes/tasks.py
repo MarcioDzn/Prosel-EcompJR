@@ -38,3 +38,14 @@ def create_task(task: TaskCreate,
 
     return db_task
 
+
+@router.get("/", status_code=HTTPStatus.OK)
+def get_tasks(session: Session = Depends(get_session), 
+              current_user: User = Depends(get_current_user)) -> TaskList:
+    
+    # só pega as tasks do usuário autenticado
+    tasks = session.scalars(select(Task).where(
+        Task.user_id == current_user.id
+    )).all()
+
+    return {"tasks": tasks}
