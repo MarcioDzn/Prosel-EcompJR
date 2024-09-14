@@ -103,3 +103,28 @@ def update_task(task_id: int, task: TaskUpdate,
         session.refresh(db_task)
 
     return db_task
+
+
+@router.delete('/{task_id}', status_code=HTTPStatus.OK)
+def delete_task(task_id: int, 
+                session: Session = Depends(get_session), 
+                current_user: User = Depends(get_current_user)) -> Message:
+    
+    db_task = session.scalar(
+            select(Task).where(Task.id == task_id)
+        )
+    
+    if not db_task:
+        raise HTTPException(
+            status_code=HTTPStatus.NOT_FOUND, detail='Tarefa não encontrada.'
+        )
+
+    if current_user.id != db_task.user_id:
+        raise HTTPException(
+            status_code=HTTPStatus.FORBIDDEN, detail='Sem permissões suficientes'
+        )
+
+    session.delete(db_task)
+    session.commit()
+
+    return {'message': 'Tarefa deletada com sucesso.'}
