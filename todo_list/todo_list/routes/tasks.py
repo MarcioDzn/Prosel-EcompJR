@@ -49,3 +49,26 @@ def get_tasks(session: Session = Depends(get_session),
     )).all()
 
     return {"tasks": tasks}
+
+
+@router.get('/{task_id}', status_code=HTTPStatus.OK)
+def get_task_by_id(task_id: int, 
+                session: Session = Depends(get_session), 
+                current_user: User = Depends(get_current_user)) -> TaskPublic:
+    
+    db_task = session.scalar(
+        select(Task).where(Task.id == task_id)
+    )
+    
+    if not db_task:
+        raise HTTPException(
+            status_code=HTTPStatus.NOT_FOUND, detail='Tarefa não encontrada.'
+        )
+
+    if current_user.id != db_task.user_id:
+        raise HTTPException(
+            status_code=HTTPStatus.FORBIDDEN, detail='Sem permissões suficientes'
+        )
+
+
+    return db_task
