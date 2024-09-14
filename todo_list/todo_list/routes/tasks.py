@@ -72,3 +72,34 @@ def get_task_by_id(task_id: int,
 
 
     return db_task
+
+
+@router.patch('/{task_id}', status_code=HTTPStatus.OK)
+def update_task(task_id: int, task: TaskUpdate, 
+                session: Session = Depends(get_session), 
+                current_user: User = Depends(get_current_user)) -> TaskPublic:
+    
+    db_task = session.scalar(
+        select(Task).where(Task.id == task_id)
+    )
+    
+    if not db_task:
+        raise HTTPException(
+            status_code=HTTPStatus.NOT_FOUND, detail='Tarefa não encontrada.'
+        )
+
+    if current_user.id != db_task.user_id:
+        raise HTTPException(
+            status_code=HTTPStatus.FORBIDDEN, detail='Sem permissões suficientes'
+        )
+
+    update_data = task.dict(exclude_unset=True)
+
+    if (update_data):
+        stmt = update(Task).where(Task.id == task_id).values(**update_data)
+
+        session.execute(stmt)
+        session.commit()
+        session.refresh(db_task)
+
+    return db_task
