@@ -18,19 +18,7 @@ def create_task(task: TaskCreate,
                 session: Session = Depends(get_session), 
                 current_user: User = Depends(get_current_user)) -> TaskPublic:
     
-    user_id = current_user.id
-
-    # verifica se já existe um usuário com o id
-    db_user = session.scalar(
-        select(User).where(
-            user_id == User.id
-        )
-    )
-
-    if (not db_user):
-        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Tarefa não encontrada")
-    
-    db_task = Task(title=task.title, description=task.description, status=task.status, user_id=user_id)
+    db_task = Task(title=task.title, description=task.description, status=task.status, user_id=current_user.id)
 
     session.add(db_task)
     session.commit()
