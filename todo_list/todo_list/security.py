@@ -91,8 +91,7 @@ def get_current_user(session: Session = Depends(get_session), token: str = Depen
     return user
 
 
-async def get_current_active_user(
-    current_user: User = Depends(get_current_user),
-):
-
+def get_current_admin(current_user: User = Depends(get_current_user)):
+    if current_user.type != "administrator":
+        raise HTTPException(status_code=HTTPStatus.FORBIDDEN, detail="Sem permissões suficientes")
     return current_user
