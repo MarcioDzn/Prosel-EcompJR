@@ -66,6 +66,23 @@ def get_user_by_id(user_id: int, session: Session = Depends(get_session), curren
     return db_user
 
 
+@router.delete("/me/", status_code=HTTPStatus.OK)
+def delete_user_me(session: Session = Depends(get_session), current_user: User = Depends(get_current_user)) -> Message:   
+    db_user = session.scalar(
+        select(User).where(
+            User.id == current_user.id
+        )
+    )
+
+    if (not db_user):
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Usuário não encontrado")
+
+    session.delete(db_user)
+    session.commit()
+
+    return {"message": "Sua conta foi deletada com sucesso"}
+
+
 @router.delete("/{user_id}", status_code=HTTPStatus.OK)
 def delete_user(user_id: int, session: Session = Depends(get_session), current_admin: User = Depends(get_current_admin)) -> Message:    
     db_user = session.scalar(
