@@ -39,21 +39,21 @@ def create_user(user: UserCreate, session: Session = Depends(get_session)) -> Us
 
 
 @router.get("/", status_code=HTTPStatus.OK)
-def get_users(session: Session = Depends(get_session)) -> UserList:
-    users = session.scalars(
-        select(User)
-    ).all()
+def get_users(session: Session = Depends(get_session), current_admin: User = Depends(get_current_admin)) -> UserList:
+    # apenas um admin pode obter uma lista com todos os usuários
+
+    users = session.scalars(select(User)).all()
 
     return {"users": users}
 
 
 @router.get("/me/")
-def get_users_me(current_user: User = Depends(get_current_active_user)) -> UserPublic:
+def get_users_me(current_user: User = Depends(get_current_user)) -> UserPublic:
     return current_user
 
 
 @router.get("/{user_id}", status_code=HTTPStatus.OK)
-def get_user_by_id(user_id: int, session: Session = Depends(get_session)) -> UserPublic:
+def get_user_by_id(user_id: int, session: Session = Depends(get_session), current_admin: User = Depends(get_current_admin)) -> UserPublic:
     db_user = session.scalar(
         select(User).where(
             User.id == user_id
@@ -67,7 +67,7 @@ def get_user_by_id(user_id: int, session: Session = Depends(get_session)) -> Use
 
 
 @router.delete("/{user_id}", status_code=HTTPStatus.OK)
-def delete_user(user_id: int, session: Session = Depends(get_session)) -> Message:
+def delete_user(user_id: int, session: Session = Depends(get_session), current_admin: User = Depends(get_current_admin)) -> Message:    
     db_user = session.scalar(
         select(User).where(
             User.id == user_id
@@ -76,6 +76,9 @@ def delete_user(user_id: int, session: Session = Depends(get_session)) -> Messag
 
     if (not db_user):
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Usuário não encontrado")
+    
+    if db_user.id == current_admin.id:
+        raise HTTPException(status_code=400, detail="Administradores não podem deletar a si mesmos")
 
     session.delete(db_user)
     session.commit()
@@ -83,16 +86,11 @@ def delete_user(user_id: int, session: Session = Depends(get_session)) -> Messag
     return {"message": "Usuário deletado com sucesso"}
 
 
-@router.patch("/{user_id}", status_code=HTTPStatus.OK)
-def update_user(user_id: int, user: UserUpdate, session: Session = Depends(get_session), current_user: User = Depends(get_current_user)) -> UserPublic:
-    if current_user.id != user_id:
-        raise HTTPException(
-            status_code=HTTPStatus.FORBIDDEN, detail='Sem permissões suficientes'
-        )
-
+@router.patch("/me/", status_code=HTTPStatus.OK)
+def update_user(user: UserUpdate, session: Session = Depends(get_session), current_user: User = Depends(get_current_user)) -> UserPublic:
     db_user = session.scalar(
         select(User).where(
-            User.id == user_id
+            User.id == current_user.id
         )
     )
 
@@ -115,7 +113,7 @@ def update_user(user_id: int, user: UserUpdate, session: Session = Depends(get_s
             raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="E-mail já cadastrado!")
 
     if (update_data):
-        stmt = update(User).where(User.id == user_id).values(**update_data)
+        stmt = update(User).where(User.id == current_user.id).values(**update_data)
 
         session.execute(stmt)
         session.commit()
