@@ -39,7 +39,7 @@ def create_task(task: TaskCreate,
     return db_task
 
 
-@router.get("/", status_code=HTTPStatus.OK)
+@router.get("/me/", status_code=HTTPStatus.OK)
 def get_tasks(session: Session = Depends(get_session), 
               current_user: User = Depends(get_current_user)) -> TaskList:
     
@@ -51,7 +51,7 @@ def get_tasks(session: Session = Depends(get_session),
     return {"tasks": tasks}
 
 
-@router.get('/{task_id}', status_code=HTTPStatus.OK)
+@router.get('/me/{task_id}', status_code=HTTPStatus.OK)
 def get_task_by_id(task_id: int, 
                 session: Session = Depends(get_session), 
                 current_user: User = Depends(get_current_user)) -> TaskPublic:
@@ -74,7 +74,7 @@ def get_task_by_id(task_id: int,
     return db_task
 
 
-@router.patch('/{task_id}', status_code=HTTPStatus.OK)
+@router.patch('/me/{task_id}', status_code=HTTPStatus.OK)
 def update_task(task_id: int, task: TaskUpdate, 
                 session: Session = Depends(get_session), 
                 current_user: User = Depends(get_current_user)) -> TaskPublic:
@@ -105,7 +105,7 @@ def update_task(task_id: int, task: TaskUpdate,
     return db_task
 
 
-@router.delete('/{task_id}', status_code=HTTPStatus.OK)
+@router.delete('/me/{task_id}', status_code=HTTPStatus.OK)
 def delete_task(task_id: int, 
                 session: Session = Depends(get_session), 
                 current_user: User = Depends(get_current_user)) -> Message:
