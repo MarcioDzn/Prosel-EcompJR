@@ -29,12 +29,26 @@ def create_task(task: TaskCreate,
 
 @router.get("/me/", status_code=HTTPStatus.OK)
 def get_tasks(session: Session = Depends(get_session), 
-              current_user: User = Depends(get_current_user)) -> TaskList:
+              current_user: User = Depends(get_current_user), 
+              title: str = Query(None), 
+              description: str = Query(None), 
+              status: str = Query(None)) -> TaskList:
     
     # só pega as tasks do usuário autenticado
-    tasks = session.scalars(select(Task).where(
+    query = select(Task).where(
         Task.user_id == current_user.id
-    )).all()
+    )
+
+    if (title):
+        query = query.filter(Task.title.contains(title))
+
+    if (description):
+        query = query.filter(Task.description.contains(description))
+
+    if (status):
+        query = query.filter(Task.status == status)
+
+    tasks = session.scalars(query).all()
 
     return {"tasks": tasks}
 
