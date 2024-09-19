@@ -117,6 +117,13 @@ def update_user(user: UserUpdate, session: Session = Depends(get_session), curre
 
     update_data = user.dict(exclude_unset=True)
 
+    if len(update_data) == 0:
+        raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="Dados de atualização são necessários")
+
+    # garante que admins não possam mudar seus status
+    if current_user.type == "administrator" and 'type' in update_data:
+        raise HTTPException(status_code=400, detail="Administradores não podem mudar seus tipos de usuário")
+
     # verifica se o usuário quer editar o email
     if 'email' in update_data:
         # se sim verifica se o email já existe
