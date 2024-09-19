@@ -137,3 +137,39 @@ def update_user(user: UserUpdate, session: Session = Depends(get_session), curre
         session.refresh(db_user)
     
     return db_user
+
+
+@router.patch("/{user_id}", status_code=HTTPStatus.OK)
+def update_user(user_id: int, user: UserUpdate, session: Session = Depends(get_session), current_user: User = Depends(get_current_user)) -> UserPublic:
+    db_user = session.scalar(
+        select(User).where(
+            User.id == user_id
+        )
+    )
+
+    if (not db_user):
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Usuário não encontrado")
+    
+
+    update_data = user.dict(exclude_unset=True)
+    
+    if len(update_data) == 0:
+        raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="Dados de atualização são necessários")
+
+    if current_user.type != "administrator" and 'type' in update_data:
+        raise HTTPException(status_code=400, detail="Apenas administradores podem mudar o tipo de outros usuários")
+    
+    if len(update_data) > 1 or not 'type' in update_data:
+        raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail="Apenas alterações do tipo de usuário são permitidas")
+    
+    if current_user.type == "administrator" and db_user.type == "administrator":
+        raise HTTPException(status_code=400, detail="Não é possível alterar o tipo de usuário de outros administradores")
+
+    if (update_data):
+        stmt = update(User).where(User.id == user_id).values(**update_data)
+
+        session.execute(stmt)
+        session.commit()
+        session.refresh(db_user)
+    
+    return db_user
