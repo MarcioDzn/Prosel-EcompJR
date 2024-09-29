@@ -122,5 +122,5 @@
 <A name="Conc"></A>
 # Conclusão
 
-...
+O desenvolvimento desta aplicação de lista de tarefas para o processo seletivo da EcompJr, representou uma oportunidade de profundo aprendizado técnico e colaborativo para todos os coloradores do projeto. A experiência também proporcionou um mergulho no desenvolvimento fullstack, envolvendo React.js para o Front-End, FastAPI para o Back-End e SQLite para o Banco de Dados, além de aprimorar habilidades de trabalho em equipe e organização de projetos. Além disso, ao longo do processo, o entendimento sobre a importância da segurança de dados, da prototipação e do uso de boas práticas no código ficou mais claro, demonstrando como essas etapas impactam diretamente na qualidade final do produto. 
  
