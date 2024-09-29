@@ -4,6 +4,10 @@
 
 </div>
 
+<div align="justify">
+A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou uma necessidade urgente de aprimorar a gestão de tarefas entre seus membros e administradores. O sistema atual, baseado em processos manuais, gera dificuldades de organização e acompanhamento, impactando diretamente na eficiência das atividades. Assim, este projeto tem como objetivo desenvolver uma aplicação de lista de tarefas (to-do list) que proporcione uma solução prática e intuitiva. Utilizando React.js para o front-end, FastAPI para o back-end e SQLite como banco de dados, a aplicação permitirá o gerenciamento de tarefas pelos usuários e o controle de usuários por administradores. Com isso, a Ecomp Jr espera otimizar seus processos internos, facilitando o acompanhamento e a execução das atividades diárias.
+</div>
+
 <A name= "Intr"></A>
 
 # Introdução
@@ -122,5 +126,6 @@
 <A name="Conc"></A>
 # Conclusão
 
+<div align="justify">
 O desenvolvimento desta aplicação de lista de tarefas para o processo seletivo da EcompJr, representou uma oportunidade de profundo aprendizado técnico e colaborativo para todos os coloradores do projeto. A experiência também proporcionou um mergulho no desenvolvimento fullstack, envolvendo React.js para o Front-End, FastAPI para o Back-End e SQLite para o Banco de Dados, além de aprimorar habilidades de trabalho em equipe e organização de projetos. Além disso, ao longo do processo, o entendimento sobre a importância da segurança de dados, da prototipação e do uso de boas práticas no código ficou mais claro, demonstrando como essas etapas impactam diretamente na qualidade final do produto. 
- 
+</div> 
