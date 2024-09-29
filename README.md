@@ -107,7 +107,7 @@
 <A name="Front"></A>
 # Front-End
 
-...
+> :construction: Em construção :construction:
 
 <A name= "Back"></A>
 # Back-End
@@ -117,7 +117,7 @@
 <A name= "Inte"></A>
 # Integração
 
-...
+> :construction: Em construção :construction:
  
 <A name="Conc"></A>
 # Conclusão
