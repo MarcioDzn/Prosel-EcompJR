@@ -76,12 +76,21 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 <A name="Diag"></A>
 # Diagramas
-## Diagramas de Casos de Uso
+## Diagrama de Casos de Uso
 
 <div align="center">
    
    ![Figura 8](images/uml/diagrama_casos_uso.jpeg)
    <br/> <em>Figura 2. Diagrama de Caso de Uso.</em> <br/>
+   
+   </div>
+
+## Diagrama de Classes
+
+<div align="center">
+   
+   ![Figura 8](images/uml/diagrama_classes.jpeg)
+   <br/> <em>Figura 3. Diagrama de Classes.</em> <br/>
    
    </div>
    
