@@ -27,7 +27,8 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 ## Etapas:
 
 ### 1. Configuração do Ambiente:
-
+   
+  - Para utilizar essa aplicação, é essencial que o ambiente esteja devidamente configurado. Primeiramente, é necessário ter a linguagem Python instalada no sistema, pois a partir dela será possível realizar a instalação do FastAPI, juntamente com ferramentas como Poetry e Pyenv, utilizando o comando pip install. Além disso, é fundamental dispor de um ambiente de desenvolvimento integrado (IDE), que facilitará a execução dos comandos e o gerenciamento da aplicação de maneira eficiente. Outro ponto a ser observado é a instalação do Node.js, indispensável para criar e rodar o front-end em React. Com essas dependências devidamente configuradas, o desenvolvimento e a execução da aplicação ocorrerão de forma fluida e organizada.
      
 ### 2. Obtenção do Código Fonte:
 
@@ -39,11 +40,38 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 ### 3. Configuração da Aplicação:
 
+ # Back-End:
+   Primeiramente, para conseguirmos executar a API, devemos executar esses passos respectivamante:
 
+   1.     cd todo_list
+   2.     poetry install
+   3.     poetry shell
+   4.     alembic upgrade head
+   
+   `Observação:` Para que essa etapa ocorra normalmente é necessário que você esteja com o projeto aberto na pasta principal.
+
+ # Front-End:
+
+ > :construction: Em construção :construction:
 
 ### 4. Execução da Aplicação:
 
-  
+ # Back-End:
+   Após ter realizado adequadamente a configuração da aplicação, podemos iniciar a API através do comando:  
+ 
+       fastapi dev todo_list/app.py
+   Pronto, agora você poderá fazer testes com a API clicando em Ctrl e na rota API docs conforme está ilustrado na Figura 1.
+
+   <div align="center">
+   
+   ![Figura 1](Imagens/opcao4cliente.png)
+   <br/> <em>Figura 1. .</em> <br/>
+   
+   </div>
+   
+# Front-End:
+
+  > :construction: Em construção :construction:
 
 <A name="Prot"></A>
 # Prototipação
@@ -53,56 +81,56 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 <div align="center">
    
    ![Figura 8](Imagens/menucliente.png)
-   <br/> <em>Figura 1. .</em> <br/>
+   <br/> <em>Figura 2. .</em> <br/>
    
    </div>
 
   <div align="center">
    
    ![Figura 9](Imagens/opcao2cliente.png)
-   <br/> <em>Figura 2. .</em> <br/>
-   
-   </div>
-
-   <div align="center">
-   
-   ![Figura 10](Imagens/opcao5cliente1.png)
    <br/> <em>Figura 3. .</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 11](Imagens/opcao1cliente.png)
+   ![Figura 10](Imagens/opcao5cliente1.png)
    <br/> <em>Figura 4. .</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 12](Imagens/opcao5cliente.png)
+   ![Figura 11](Imagens/opcao1cliente.png)
    <br/> <em>Figura 5. .</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 13](Imagens/opcao4cliente.png)
+   ![Figura 12](Imagens/opcao5cliente.png)
    <br/> <em>Figura 6. .</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 14](Imagens/opcao3cliente.png)
+   ![Figura 13](Imagens/opcao4cliente.png)
    <br/> <em>Figura 7. .</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 15](Imagens/opcao5cliente2.png)
+   ![Figura 14](Imagens/opcao3cliente.png)
    <br/> <em>Figura 8. .</em> <br/>
+   
+   </div>
+
+   <div align="center">
+   
+   ![Figura 15](Imagens/opcao5cliente2.png)
+   <br/> <em>Figura 9. .</em> <br/>
    
    </div>
 
