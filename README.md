@@ -157,6 +157,8 @@ Essa seção é destinada a ilustração dos prototipos das telas, desenvolvidad
    
    </div>
 
+   `Observação:` Note que a prototipação foi feita para aplicações mobile, ou seja, uma abordagem "mobile first", isto porque facilitaria o uso de qualquer pessoa com um celular. 
+
 <A name="Front"></A>
 # Front-End
 
