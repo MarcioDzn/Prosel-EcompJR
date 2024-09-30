@@ -15,6 +15,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 # Sumário
 - <A href = "#Intr">Introdução</A><br>
 - <A href = "#Exec">Como Executar</A><br>
+- <A href = "#Diag">Diagramas UML</A><br>
 - <A href = "#Prot">Prototipação</A><br>
 - <A href = "#Front">Front-End</A><br>
 - <A href = "#Back">Back-End</A><br>
@@ -73,6 +74,17 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
   > :construction: Em construção :construction:
 
+<A name="Diag"></A>
+# Diagramas
+## Diagramas de Casos de Uso
+
+<div align="center">
+   
+   ![Figura 8](Images/uml/diagrama de casos de uso.png)
+   <br/> <em>Figura 2. Diagrama de Caso de Uso.</em> <br/>
+   
+   </div>
+   
 <A name="Prot"></A>
 # Prototipação
 
