@@ -80,7 +80,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 <div align="center">
    
-   ![Figura 8](images/uml/diagrama_casos_uso.jpeg)
+   ![Figura 2](images/uml/diagrama_casos_uso.jpeg)
    <br/> <em>Figura 2. Diagrama de Caso de Uso.</em> <br/>
    
    </div>
@@ -89,7 +89,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 <div align="center">
    
-   ![Figura 8](images/uml/diagrama_classes.jpeg)
+   ![Figura 3](images/uml/diagrama_classes.jpeg)
    <br/> <em>Figura 3. Diagrama de Classes.</em> <br/>
    
    </div>
@@ -98,7 +98,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 <div align="center">
    
-   ![Figura 8](images/uml/der.jpeg)
+   ![Figura 4](images/uml/der.jpeg)
    <br/> <em>Figura 4. Diagrama de Entidade e Relacionamento.</em> <br/>
    
    </div>
@@ -106,61 +106,54 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 <A name="Prot"></A>
 # Prototipação
 
-...
+Essa seção é destinada a ilustração dos prototipos das telas, desenvolvidadas com a ferramenta Figma.
 
 <div align="center">
    
-   ![Figura 8](Imagens/menucliente.png)
-   <br/> <em>Figura 2. .</em> <br/>
+   ![Figura 5](images/prototype/tela_1.png)
+   <br/> <em>Figura 5. Protótipo Tela de Login.</em> <br/>
    
    </div>
 
   <div align="center">
    
-   ![Figura 9](Imagens/opcao2cliente.png)
-   <br/> <em>Figura 3. .</em> <br/>
+   ![Figura 6](images/prototype/tela_2.png)
+   <br/> <em>Figura 6. Protótipo Tela de Cadastro de Conta.</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 10](Imagens/opcao5cliente1.png)
-   <br/> <em>Figura 4. .</em> <br/>
+   ![Figura 7](images/propotype/tela_3.png)
+   <br/> <em>Figura 7. Protótipo Menu Lateral.</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 11](Imagens/opcao1cliente.png)
-   <br/> <em>Figura 5. .</em> <br/>
+   ![Figura 8](images/prototype/tela_4.png)
+   <br/> <em>Figura 8. Protótipo Tela de Criação e Visualização de Tasks.</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 12](Imagens/opcao5cliente.png)
-   <br/> <em>Figura 6. .</em> <br/>
+   ![Figura 9](images/prototype/tela_5.png)
+   <br/> <em>Figura 9. Protótipo Tela Campo Insersão de Dados para Criação de Task.</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 13](Imagens/opcao4cliente.png)
-   <br/> <em>Figura 7. .</em> <br/>
+   ![Figura 10](images/prototype/tela_7.png)
+   <br/> <em>Figura 10. Protótipo Tela de Edição de Task.</em> <br/>
    
    </div>
 
    <div align="center">
    
-   ![Figura 14](Imagens/opcao3cliente.png)
-   <br/> <em>Figura 8. .</em> <br/>
-   
-   </div>
-
-   <div align="center">
-   
-   ![Figura 15](Imagens/opcao5cliente2.png)
-   <br/> <em>Figura 9. .</em> <br/>
+   ![Figura 11](images/prototype/tela_8.png)
+   <br/> <em>Figura 11. Protótipo Tela de Gerencia de Usuários.</em> <br/>
    
    </div>
 
@@ -172,7 +165,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 <A name= "Back"></A>
 # Back-End
 
-...
+> :construction: Em construção :construction:
 
 <A name= "Inte"></A>
 # Integração
