@@ -178,7 +178,21 @@ Esse conjunto de tecnologias e práticas garante que o back-end da aplicação n
 <A name= "Inte"></A>
 # Integração
 
-> :construction: Em construção :construction:
+Ainda não foi feita a integração do Back-end com o front-End, visto que este ultimo ainda não está finalizado, contudo, o desenvolvimento do Back-End está pronto e pode ser testado através da API.
+
+ <div align="center">
+   
+   ![Figura 12](images/backend/rota_users.png)
+   <br/> <em>Figura 12. Interface do FastAPI para uso dinâmico da API - Rotas de Usuário.</em> <br/>
+   
+   </div>
+
+<div align="center">
+   
+   ![Figura 13](images/backend/rota_tasks.png)
+   <br/> <em>Figura 13. Interface do FastAPI para uso dinâmico da API - Rotas de Task e Autenticação de Usuário.</em> <br/>
+   
+   </div>  
  
 <A name="Conc"></A>
 # Conclusão
