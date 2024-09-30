@@ -98,7 +98,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 <div align="center">
    
-   ![Figura 8](images/uml/diagrama_der.jpeg)
+   ![Figura 8](images/uml/der.jpeg)
    <br/> <em>Figura 4. Diagrama de Entidade e Relacionamento.</em> <br/>
    
    </div>
