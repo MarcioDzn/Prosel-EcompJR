@@ -64,8 +64,8 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
    <div align="center">
    
-   ![Figura 1](Imagens/opcao4cliente.png)
-   <br/> <em>Figura 1. .</em> <br/>
+   ![Figura 1](imagens/backend/fastapi.png)
+   <br/> <em>Figura 1. Imagem API em execução.</em> <br/>
    
    </div>
    
