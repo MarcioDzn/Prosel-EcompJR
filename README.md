@@ -124,7 +124,7 @@ Essa seção é destinada a ilustração dos prototipos das telas, desenvolvidad
 
    <div align="center">
    
-   ![Figura 7](images/propotype/tela_3.png)
+   ![Figura 7](images/prototype/tela_3.png)
    <br/> <em>Figura 7. Protótipo Menu Lateral.</em> <br/>
    
    </div>
