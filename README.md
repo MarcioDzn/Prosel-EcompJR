@@ -167,7 +167,13 @@ Essa seção é destinada a ilustração dos prototipos das telas, desenvolvidad
 <A name= "Back"></A>
 # Back-End
 
-> :construction: Em construção :construction:
+O back-end da aplicação foi desenvolvido utilizando FastAPI, uma poderosa ferramenta para construir APIs modernas e de alto desempenho em Python. Esse framework oferece simplicidade no desenvolvimento e escalabilidade, permitindo uma rápida criação de rotas, controle de requisições e respostas, além de integração eficiente com bancos de dados, como o SQLite, utilizado neste projeto.
+
+A estrutura do back-end segue uma arquitetura clara e modular, facilitando a manutenção e a extensão de funcionalidades. Entre as principais operações implementadas estão as rotinas de autenticação e autorização de usuários, criação e gerenciamento de tarefas, além do controle de administradores para a gestão de outros usuários. Cada operação foi estruturada seguindo boas práticas de desenvolvimento, como separação de responsabilidades e tratamento de erros robusto.
+
+Para o gerenciamento de banco de dados, optou-se por utilizar o SQLAlchemy, uma biblioteca ORM (Object-Relational Mapping), que facilita a interação com o SQLite. Com isso, as consultas e operações no banco são realizadas de forma mais intuitiva e segura. A segurança foi uma prioridade no back-end, implementando o armazenamento seguro de senhas e verificação de credenciais para determinadas ações, evitando que informações sensíveis sejam armazenadas de maneira vulnerável.
+
+Esse conjunto de tecnologias e práticas garante que o back-end da aplicação não apenas atenda às necessidades funcionais do sistema, mas também ofereça um desempenho eficiente e escalável, além de garantir a segurança e a integridade dos dados dos usuários.
 
 <A name= "Inte"></A>
 # Integração
