@@ -80,7 +80,7 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
 
 <div align="center">
    
-   ![Figura 8](Images/uml/diagrama de casos de uso.png)
+   ![Figura 8](images/uml/diagrama de casos de uso.png)
    <br/> <em>Figura 2. Diagrama de Caso de Uso.</em> <br/>
    
    </div>
