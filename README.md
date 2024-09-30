@@ -93,6 +93,15 @@ A Ecomp Jr, empresa júnior de Engenharia de Computação da UEFS, identificou u
    <br/> <em>Figura 3. Diagrama de Classes.</em> <br/>
    
    </div>
+
+## Diagrama de Entidade e Relacionamento
+
+<div align="center">
+   
+   ![Figura 8](images/uml/diagrama_der.jpeg)
+   <br/> <em>Figura 4. Diagrama de Entidade e Relacionamento.</em> <br/>
+   
+   </div>
    
 <A name="Prot"></A>
 # Prototipação
